@@ -59,7 +59,7 @@ function FormModal({ onClose }) {
   };
 
   return (
-    <div className="modal-overlay">
+    <div className="modal">
       <div className="modal-content">
         <form onSubmit={handleSubmit}>
           <h2>Fill Details</h2>
