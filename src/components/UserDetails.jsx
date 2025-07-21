@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import FormModal from "./FormModal";
-import "./FormModal.css"; // Add this for styles
+import "./FormModal.css";
 
 function UserDetails() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -14,7 +14,7 @@ function UserDetails() {
   };
 
   return (
-    <div className="user-details-container">
+    <div id="root" className="user-details-container">
       <h1>User Details Modal</h1>
       <button
         style={{ backgroundColor: "rgb(60, 120, 232)", color: "white" }}

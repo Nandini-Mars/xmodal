@@ -46,7 +46,6 @@ function FormModal({ onClose }) {
 
     alert("Form submitted successfully!");
 
-    // ✅ Reset form
     setFormData({
       username: "",
       email: "",
@@ -54,19 +53,25 @@ function FormModal({ onClose }) {
       dob: "",
     });
 
-    // ✅ Close modal
     onClose();
   };
 
+  const handleBackdropClick = (e) => {
+    if (e.target.classList.contains("modal")) {
+      onClose();
+    }
+  };
+
   return (
-    <div className="modal">
+    <div className="modal" onClick={handleBackdropClick}>
       <div className="modal-content">
         <form onSubmit={handleSubmit}>
           <h2>Fill Details</h2>
           <div>
-            <label>Username:</label>
+            <label htmlFor="username">Username:</label>
             <br />
             <input
+              id="username"
               type="text"
               name="username"
               value={formData.username}
@@ -75,9 +80,10 @@ function FormModal({ onClose }) {
             />
           </div>
           <div>
-            <label>Email Address:</label>
+            <label htmlFor="email">Email Address:</label>
             <br />
             <input
+              id="email"
               type="email"
               name="email"
               value={formData.email}
@@ -86,9 +92,10 @@ function FormModal({ onClose }) {
             />
           </div>
           <div>
-            <label>Phone Number:</label>
+            <label htmlFor="phone">Phone Number:</label>
             <br />
             <input
+              id="phone"
               type="tel"
               name="phone"
               value={formData.phone}
@@ -97,9 +104,10 @@ function FormModal({ onClose }) {
             />
           </div>
           <div>
-            <label>Date of Birth:</label>
+            <label htmlFor="dob">Date of Birth:</label>
             <br />
             <input
+              id="dob"
               type="date"
               name="dob"
               value={formData.dob}
@@ -109,6 +117,7 @@ function FormModal({ onClose }) {
           </div>
           <div className="button-group">
             <button
+              className="submit-button"
               style={{
                 backgroundColor: "rgb(60, 120, 232)",
                 color: "white",
@@ -118,14 +127,14 @@ function FormModal({ onClose }) {
             >
               Submit
             </button>
-            {/*
-              <button
-                style={{ backgroundColor: "rgb(60, 120, 232)", color: "white" }}
-                type="button"
-                onClick={onClose}
-              >
-                Close
-              </button>*/}
+            {/* Optional: Re-add Close button */}
+            {/* <button
+              style={{ backgroundColor: "gray", color: "white", marginLeft: '10px' }}
+              type="button"
+              onClick={onClose}
+            >
+              Close
+            </button> */}
           </div>
         </form>
       </div>
